@@ -33,7 +33,24 @@ app.get('/users', qr.getAllUsers);
 app.get('/users/:id', qr.getUserById);
 
 /* CATCH ALL ERROR ROUTE */
-app.use('*', nonExistentRoute);
+// eslint-disable-next-line no-unused-vars
+app.use((err, req, res, next) => {
+  console.error(err.message);
+
+  // Define a common server error status code if none is part of the err.
+  // eslint-disable-next-line no-param-reassign
+  if (!err.statusCode) err.statusCode = 500;
+
+  if (err.shouldRedirect) {
+    // Gets a customErrorPage.html.
+    res.render(nonExistentRoute);
+  } else {
+    // Gets the original err data, If shouldRedirect is not declared in the error.
+    res.status(err.statusCode).send(err.message);
+  }
+});
+
+app.use(['*', '*/*', '*/*/*', '*/'], nonExistentRoute);
 
 /*
 End of file
