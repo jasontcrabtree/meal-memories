@@ -11,14 +11,16 @@
       "airbnb"
     ],
     "rules": {
-      "no-fallthrough": 0
+      "no-fallthrough": 0,
+      "no-console": 0
     }
   },
   "dependencies": {
     "cookie-parser": "~1.4.4",
     "debug": "^4.3.1",
     "express": "^4.17.1",
-    "morgan": "^1.10.0"
+    "morgan": "^1.10.0",
+    "pg": "^8.5.1"
   },
   "devDependencies": {
     "babel-eslint": "^10.1.0",
