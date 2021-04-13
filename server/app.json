@@ -1,0 +1,6 @@
+{
+  "name": "Meal Memories API",
+  "description": "Express API hosted via Heroku",
+  "repository": "https://github.com/jasontcrabtree/meal-memories",
+  "keywords": ["node", "express", "static"]
+}
