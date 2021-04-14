@@ -1,5 +1,9 @@
 import NextAuth from 'next-auth';
 import Providers from 'next-auth/providers';
+import Adapters from 'next-auth/adapters';
+import { PrismaClient } from '@prisma/client';
+
+const prisma = new PrismaClient();
 
 const options = {
   site: process.env.NEXTAUTH_URL || 'http://localhost:3000',
@@ -27,11 +31,12 @@ const options = {
 
   // Database optional. MySQL, Maria DB, Postgres and MongoDB are supported.
   // https://next-auth.js.org/configuration/databases
+  adapter: Adapters.Prisma.Adapter({ prisma }),
 
   // Notes:
   // * You must install an appropriate node_module for your database
   // * The Email provider requires a database (OAuth providers do not)
-  database: process.env.DATABASE_URL,
+  // database: process.env.DATABASE_URL,
   secret: process.env.SECRET,
 
   session: {

@@ -1,9 +1,12 @@
 # example netlify.toml
 [build]
-  base = "client"
+  # base = "client"
   # command = "next build"
-  publish = "out"
+  # publish = "out"
   # functions = "functions"
+  command = "next build"
+  publish = "out"
+
 
 [[plugins]]
   package = "@netlify/plugin-nextjs"

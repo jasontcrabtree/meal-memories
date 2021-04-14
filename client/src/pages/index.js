@@ -28,7 +28,7 @@ export default function Home() {
           )}
         </section>
         <section>
-          <h1>{session ? session.user.email : 'Hello!'}</h1>
+          <h1>{session ? session?.user?.email : 'Hello!'}</h1>
         </section>
       </main>
     );
