@@ -1,8 +1,8 @@
 import NextAuth from 'next-auth';
 import Providers from 'next-auth/providers';
 
-// https://next-auth.js.org/configuration/options
-export default NextAuth({
+const options = {
+  site: process.env.NEXTAUTH_URL || 'http://localhost:3000',
   providers: [
     Providers.Email({
       server: {
@@ -31,7 +31,6 @@ export default NextAuth({
   // Notes:
   // * You must install an appropriate node_module for your database
   // * The Email provider requires a database (OAuth providers do not)
-  site: process.env.NEXTAUTH_URL || 'http://localhost:3000',
   database: process.env.DATABASE_URL,
   secret: process.env.SECRET,
 
@@ -98,4 +97,6 @@ export default NextAuth({
 
   // Enable debug messages in the console if you are having problems
   debug: true,
-});
+};
+
+export default (req, res) => NextAuth(req, res, options);
