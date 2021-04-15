@@ -10,7 +10,8 @@ console.log(codeEnvironment());
 
 const options = {
   // site: process.env.NEXTAUTH_URL || 'http://localhost:3000',
-  site: codeEnvironment(),
+  // site: codeEnvironment(),
+  site: process.env.NEXTAUTH_URL,
   providers: [
     Providers.Email({
       server: {
