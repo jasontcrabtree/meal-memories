@@ -2,11 +2,15 @@ import NextAuth from 'next-auth';
 import Providers from 'next-auth/providers';
 import Adapters from 'next-auth/adapters';
 import { PrismaClient } from '@prisma/client';
+import codeEnvironment from '../../../components/utils/codeEnvironment';
 
 const prisma = new PrismaClient();
 
+console.log(codeEnvironment());
+
 const options = {
-  site: process.env.NEXTAUTH_URL || 'http://localhost:3000',
+  // site: process.env.NEXTAUTH_URL || 'http://localhost:3000',
+  site: codeEnvironment(),
   providers: [
     Providers.Email({
       server: {
