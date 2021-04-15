@@ -7,10 +7,10 @@ import codeEnvironment from '../../../components/utils/codeEnvironment';
 const prisma = new PrismaClient();
 
 console.log(codeEnvironment());
+// site: codeEnvironment(),
 
 const options = {
   // site: process.env.NEXTAUTH_URL || 'http://localhost:3000',
-  // site: codeEnvironment(),
   site: process.env.NEXTAUTH_URL,
   providers: [
     Providers.Email({
