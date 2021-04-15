@@ -8,9 +8,9 @@ const prisma = new PrismaClient();
 
 console.log(codeEnvironment());
 // site: codeEnvironment(),
+// site: process.env.NEXTAUTH_URL || 'http://localhost:3000',
 
 const options = {
-  // site: process.env.NEXTAUTH_URL || 'http://localhost:3000',
   site: process.env.NEXTAUTH_URL,
   providers: [
     Providers.Email({

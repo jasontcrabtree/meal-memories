@@ -6,5 +6,5 @@ export default function codeEnvironment() {
     return process.env.NEXTAUTH_URL;
   }
   //   console.log('local');
-  return 'http://localhost:3000';
+  //   return 'http://localhost:3000';
 }
