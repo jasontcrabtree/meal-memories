@@ -65,7 +65,7 @@ const options = {
   jwt: {
     // A secret to use for key generation (you should set this explicitly)
     secret: process.env.SECRET,
-    // signingKey: process.env.JWT_SIGNING_PRIVATE_KEY,
+    signingKey: process.env.JWT_SIGNING_PRIVATE_KEY,
 
     // Set to true to use encryption (default: false)
     // encryption: true,
