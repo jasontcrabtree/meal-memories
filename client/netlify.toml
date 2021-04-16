@@ -8,8 +8,8 @@
   # command = "next build"
   # publish = "out"
 
-  functions = "out_functions"
-  publish   = "out_publish"
+  functions = "functions"
+  publish   = "out"
   command   = "npm run prisma"
 
 
