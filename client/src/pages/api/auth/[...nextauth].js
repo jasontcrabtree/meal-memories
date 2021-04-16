@@ -2,11 +2,11 @@ import NextAuth from 'next-auth';
 import Providers from 'next-auth/providers';
 import Adapters from 'next-auth/adapters';
 import { PrismaClient } from '@prisma/client';
-import codeEnvironment from '../../../components/utils/codeEnvironment';
+// import codeEnvironment from '../../../components/utils/codeEnvironment';
 
 const prisma = new PrismaClient();
 
-console.log(codeEnvironment());
+// console.log(codeEnvironment());
 // site: codeEnvironment(),
 // site: process.env.NEXTAUTH_URL || 'http://localhost:3000',
 
@@ -64,7 +64,9 @@ const options = {
   // https://next-auth.js.org/configuration/options#jwt
   jwt: {
     // A secret to use for key generation (you should set this explicitly)
-    // secret: 'INp8IvdIyeMcoGAgFGoA61DdBglwwSqnXJZkgz8PSnw',
+    secret: process.env.SECRET,
+    signingKey: process.env.JWT_SIGNING_PRIVATE_KEY,
+
     // Set to true to use encryption (default: false)
     // encryption: true,
     // You can define your own encode/decode functions for signing and encryption
@@ -106,7 +108,7 @@ const options = {
   events: {},
 
   // Enable debug messages in the console if you are having problems
-  debug: true,
+  debug: false,
 };
 
 export default (req, res) => NextAuth(req, res, options);
